@@ -21,7 +21,7 @@ public class RummageInventory {
     private static final String rummageButtonText = "Keep rummaging...";
     private static final int randomItemCount = 4;
     private static final int rummageTimerTickRate = 20;
-    private static final int ticksUntilNoticed = 4;
+    private static final int ticksUntilNoticed = PickpocketPlugin.getPickpocketConfiguration().getRummageTime();
     int noticeTimerCurrentSlot = 0;
     final ItemStack noticeFillerItem;
     final ItemStack fillerItem;

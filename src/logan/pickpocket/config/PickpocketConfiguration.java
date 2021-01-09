@@ -19,6 +19,7 @@ public class PickpocketConfiguration extends CommentedConfiguration {
     private static final String disabledItemsKey = "disabled-items";
     private static final String foreignTownTheftKey = "foreign-town-theft";
     private static final String sameTownTheftKey = "same-town-theft";
+    private static final String rummageTime = "rummage-time";
 
     public PickpocketConfiguration() {
         super(new File(PickpocketPlugin.getInstance().getDataFolder(), "config.yml"));
@@ -35,6 +36,7 @@ public class PickpocketConfiguration extends CommentedConfiguration {
         createKeyIfNoneExists(disabledItemsKey, Collections.singletonList("cake"));
         createKeyIfNoneExists(foreignTownTheftKey, false);
         createKeyIfNoneExists(sameTownTheftKey, false);
+        createKeyIfNoneExists(rummageTime, 4);
 
         addCommentToKey(loseMoney, "Whether or not predators should take money from", "victims when pick-pocketing.");
         addCommentToKey(moneyLost, "The percentage of money taken by the predator after", "successfully pick-pocketing another player.");
@@ -46,6 +48,7 @@ public class PickpocketConfiguration extends CommentedConfiguration {
         addCommentToKey(disabledItemsKey, "Items that can't be stolen and therefore, won't show", "up in the rummage GUI. A list of Minecraft IDs can be found", "at www.deadmap.com/idlist");
         addCommentToKey(foreignTownTheftKey, "Whether players should be able to steal from people in their own town.");
         addCommentToKey(sameTownTheftKey, "Whether players should be able to steal from their own town-folk");
+        addCommentToKey(rummageTime, "The amount of time the rummage inventory remains open before closing.");
 
         save();
     }
@@ -84,5 +87,9 @@ public class PickpocketConfiguration extends CommentedConfiguration {
 
     public boolean isSameTownTheftEnabled() {
         return getConfiguration().getBoolean(sameTownTheftKey);
+    }
+
+    public int getRummageTime() {
+        return getConfiguration().getInt(rummageTime);
     }
 }
