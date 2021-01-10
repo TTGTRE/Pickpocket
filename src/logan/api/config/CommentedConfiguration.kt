@@ -15,7 +15,7 @@ open class CommentedConfiguration(private val file: File) {
         configuration = YamlConfiguration.loadConfiguration(file)
     }
 
-    fun createKeyIfNoneExists(key: String, value: Any?, comment: Array<out String>) {
+    fun createKeyIfNoneExists(key: String, value: Any?, vararg comment: String) {
         configuration.setIfNotSet(key, value)
         commentToKeyMap[key] = comment
     }
