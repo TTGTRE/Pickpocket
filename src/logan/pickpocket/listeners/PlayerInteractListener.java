@@ -87,17 +87,17 @@ public class PlayerInteractListener implements Listener {
         PickpocketUser victimUser = Profiles.get(victim);
         PickpocketUser profile = Profiles.get(player);
 
-        if (!victimUser.isParticipating()) {
-            if (PickpocketPlugin.getPickpocketConfiguration().isShowStatusOnInteractEnabled())
-                player.sendMessage(MessageConfiguration.getPickpocketDisabledOtherMessage());
-            return;
-        }
-
-        if (!profile.isParticipating()) {
-            if (PickpocketPlugin.getPickpocketConfiguration().isShowStatusOnInteractEnabled())
-                player.sendMessage(MessageConfiguration.getPickpocketDisabledMessage());
-            return;
-        }
+//        if (!victimUser.isParticipating()) {
+//            if (PickpocketPlugin.getPickpocketConfiguration().isShowStatusOnInteractEnabled())
+//                player.sendMessage(MessageConfiguration.getPickpocketDisabledOtherMessage());
+//            return;
+//        }
+//
+//        if (!profile.isParticipating()) {
+//            if (PickpocketPlugin.getPickpocketConfiguration().isShowStatusOnInteractEnabled())
+//                player.sendMessage(MessageConfiguration.getPickpocketDisabledMessage());
+//            return;
+//        }
         profile.doPickpocket(victimUser);
     }
 

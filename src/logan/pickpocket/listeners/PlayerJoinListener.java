@@ -24,7 +24,7 @@ public class PlayerJoinListener implements Listener {
         PickpocketUser profile = Profiles.get(player);
 
         // return without showing status message
-        if (!PickpocketPlugin.getPickpocketConfiguration().isShowStatusOnLoginEnabled()) return;
+//        if (!PickpocketPlugin.getPickpocketConfiguration().isShowStatusOnLoginEnabled()) return;
 
         // show status message
         if (profile.isParticipating())

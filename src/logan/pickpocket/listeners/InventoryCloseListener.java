@@ -1,7 +1,6 @@
 package logan.pickpocket.listeners;
 
 import logan.api.gui.GUIAPI;
-import logan.pickpocket.config.MessageConfiguration;
 import logan.pickpocket.main.PickpocketPlugin;
 import logan.pickpocket.main.Profiles;
 import logan.pickpocket.user.PickpocketUser;
@@ -26,16 +25,16 @@ public class InventoryCloseListener implements Listener {
         Player player = (Player) event.getPlayer();
         PickpocketUser profile = Profiles.get(player);
 
-        if (profile.isPlayingMinigame()) {
-            profile.getCurrentMinigame().stop();
-            player.sendMessage(MessageConfiguration.getPickpocketUnsuccessfulMessage());
-        }
+//        if (profile.isPlayingMinigame()) {
+//            profile.getCurrentMinigame().stop();
+//            player.sendMessage(MessageConfiguration.getPickpocketUnsuccessfulMessage());
+//        }
 
-        if (profile.isRummaging()) {
-            profile.getOpenRummageInventory().close();
-            profile.setRummaging(false);
-            profile.getVictim().setPredator(null);
-            profile.setVictim(null);
-        }
+//        if (profile.isRummaging()) {
+//            profile.getOpenPickpocketInventory().close();
+//            profile.setRummaging(false);
+//            profile.getVictim().setPredator(null);
+//            profile.setVictim(null);
+//        }
     }
 }

@@ -17,13 +17,14 @@ class PickpocketUser(val uuid: UUID) {
         get() = predator != null
     var isPlayingMinigame = false
     var isRummaging = false
-    var openRummageInventory: RummageInventory? = null
+    var openPickpocketInventory: PickpocketInventory? = null
     var isParticipating = true
         set(value) {
             field = value
             profileConfiguration.setParticipatingSection(value)
         }
-    var currentMinigame: Minigame? = null
+
+    //    var currentMinigame: Minigame? = null
     val profileConfiguration =
         ProfileConfiguration("${PickpocketPlugin.getInstance().dataFolder}/players/", "$uuid.yml")
 
@@ -36,8 +37,8 @@ class PickpocketUser(val uuid: UUID) {
                 MessageConfiguration.getCooldownNoticeMessage(PickpocketPlugin.getCooldowns()[bukkitPlayer].toString())
             )
             else -> {
-                openRummageInventory = RummageInventory(victim)
-                openRummageInventory?.show(this)
+                openPickpocketInventory = PickpocketInventory(victim)
+                openPickpocketInventory?.show(this)
                 isRummaging = true
                 this.victim = victim
                 victim.predator = this
