@@ -37,8 +37,8 @@ class PickpocketUser(val uuid: UUID) {
                 MessageConfiguration.getCooldownNoticeMessage(PickpocketPlugin.getCooldowns()[bukkitPlayer].toString())
             )
             else -> {
-                openPickpocketInventory = PickpocketInventory(victim)
-                openPickpocketInventory?.show(this)
+                openPickpocketInventory = PickpocketInventory(this, victim)
+                openPickpocketInventory?.show()
                 isRummaging = true
                 this.victim = victim
                 victim.predator = this
