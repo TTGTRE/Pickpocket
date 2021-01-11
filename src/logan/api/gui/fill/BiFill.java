@@ -22,15 +22,20 @@ public class BiFill implements Filler {
 
     @Override
     public void fill(Menu menu) {
-        this.fill(menu, Collections.emptyList(), FillPlacer.FillMode.IGNORE);
+        this.fill(menu, 0, menu.getSize() - 1, Collections.emptyList(), FillPlacer.FillMode.IGNORE);
     }
 
     @Override
-    public void fill(Menu menu, Collection<Integer> slots, FillPlacer.FillMode mode) {
+    public void fill(Menu menu, int start, int end) {
+        this.fill(menu, start, end, Collections.emptyList(), FillPlacer.FillMode.IGNORE);
+    }
+
+    @Override
+    public void fill(Menu menu, int start, int end, Collection<Integer> slots, FillPlacer.FillMode mode) {
         FillPlacer fillPlacer = new FillPlacer(fillMaterial1);
-        fillPlacer.placeIntermittently(menu, 0, 2, slots, mode);
+        fillPlacer.placeIntermittently(menu, 0, menu.getSize() - 1, 2, slots, mode);
 
         fillPlacer.setFill(fillMaterial2);
-        fillPlacer.placeIntermittently(menu, 1, 2, slots, mode);
+        fillPlacer.placeIntermittently(menu, 1, menu.getSize() - 1, 2, slots, mode);
     }
 }

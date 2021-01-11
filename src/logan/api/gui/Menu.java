@@ -77,23 +77,23 @@ public class Menu
         return closed;
     }
 
-    public void setRows(int rows)
-    {
+    public void setRows(int rows) {
         this.size = rows * 9;
     }
 
-    public void fill(Filler fillPattern)
-    {
+    public void fill(Filler fillPattern) {
         this.fill(fillPattern, Collections.emptyList(), FillPlacer.FillMode.IGNORE);
     }
 
-    public void fill(Filler fillPattern, Collection<Integer> slots, FillPlacer.FillMode mode)
-    {
-        fillPattern.fill(this, slots, mode);
+    public void fill(Filler fillPattern, int start, int end) {
+        fillPattern.fill(this, start, end);
     }
 
-    public MenuItem addItem(int slot, MenuItem menuItem)
-    {
+    public void fill(Filler fillPattern, Collection<Integer> slots, FillPlacer.FillMode mode) {
+        fillPattern.fill(this, 0, getSize() - 1, slots, mode);
+    }
+
+    public MenuItem addItem(int slot, MenuItem menuItem) {
         return menuItems.put(slot, menuItem);
     }
 

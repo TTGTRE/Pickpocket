@@ -28,7 +28,7 @@ public class FillPlacer {
         itemStack = new ItemStack(material);
     }
 
-    public void placeIntermittently(Menu menu, int start, int spacing, Collection<Integer> slots, FillMode mode) {
+    public void placeIntermittently(Menu menu, int start, int end, int spacing, Collection<Integer> slots, FillMode mode) {
 
         int size = menu.getSize();
         double times = ((double) (size - start) / spacing);
@@ -50,6 +50,7 @@ public class FillPlacer {
             }
 
             position += spacing;
+            if (position > end) return;
         }
     }
 
@@ -58,8 +59,8 @@ public class FillPlacer {
         menu.addItem(position, fillItem);
     }
 
-    public void placeIntermittently(Menu menu, int start, int spacing) {
-        this.placeIntermittently(menu, start, spacing, Collections.emptyList(), FillMode.IGNORE);
+    public void placeIntermittently(Menu menu, int start, int end, int spacing) {
+        this.placeIntermittently(menu, start, end, spacing, Collections.emptyList(), FillMode.IGNORE);
     }
 
     public enum FillMode {

@@ -20,12 +20,17 @@ public class UniFill implements Filler {
 
     @Override
     public void fill(Menu menu) {
-        this.fill(menu, Collections.emptyList(), FillPlacer.FillMode.IGNORE);
+        this.fill(menu, 0, menu.getSize() - 1, Collections.emptyList(), FillPlacer.FillMode.IGNORE);
     }
 
     @Override
-    public void fill(Menu menu, Collection<Integer> slots, FillPlacer.FillMode mode) {
+    public void fill(Menu menu, int start, int end) {
+        this.fill(menu, start, end, Collections.emptyList(), FillPlacer.FillMode.IGNORE);
+    }
+
+    @Override
+    public void fill(Menu menu, int start, int end, Collection<Integer> slots, FillPlacer.FillMode mode) {
         FillPlacer fillPlacer = new FillPlacer(fillMaterial);
-        fillPlacer.placeIntermittently(menu, 0, 1, slots, mode);
+        fillPlacer.placeIntermittently(menu, start, end, 1, slots, mode);
     }
 }
