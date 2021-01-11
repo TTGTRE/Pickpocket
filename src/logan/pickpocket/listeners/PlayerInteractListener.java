@@ -4,6 +4,7 @@ import com.earth2me.essentials.Essentials;
 import com.palmergames.bukkit.towny.TownyAPI;
 import com.palmergames.bukkit.towny.object.Town;
 import logan.pickpocket.config.MessageConfiguration;
+import logan.pickpocket.config.PickpocketConfiguration;
 import logan.pickpocket.main.PickpocketPlugin;
 import logan.pickpocket.main.Profiles;
 import logan.pickpocket.user.PickpocketUser;
@@ -71,13 +72,13 @@ public class PlayerInteractListener implements Listener {
 
         /* Foreign town member check */
         if (PickpocketPlugin.isTownyPresent()) {
-            if (!isTownMember(player) && isTownMember(victim) && !PickpocketPlugin.getPickpocketConfiguration().isForeignTownTheftEnabled()) {
+            if (!isTownMember(player) && isTownMember(victim) && !PickpocketConfiguration.Companion.isForeignTownTheftEnabled()) {
                 player.sendMessage(ChatColor.RED + "You cannot steal from players in their own town.");
                 return;
             }
 
             /* Same town member check */
-            if (isTownMember(player) && isTownMember(victim) && !PickpocketPlugin.getPickpocketConfiguration().isSameTownTheftEnabled()) {
+            if (isTownMember(player) && isTownMember(victim) && !PickpocketConfiguration.Companion.isSameTownTheftEnabled()) {
                 player.sendMessage(ChatColor.RED + "You cannot steal from your own town-folk!");
                 return;
             }

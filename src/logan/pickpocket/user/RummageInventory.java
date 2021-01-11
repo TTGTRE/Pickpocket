@@ -4,6 +4,7 @@ import logan.api.gui.Menu;
 import logan.api.gui.MenuItem;
 import logan.api.gui.fill.UniFill;
 import logan.pickpocket.config.MessageConfiguration;
+import logan.pickpocket.config.PickpocketConfiguration;
 import logan.pickpocket.main.PickpocketPlugin;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -127,7 +128,7 @@ public class RummageInventory {
             if (randomItem == null) continue;
 
             // Check if the item is banned
-            for (String disabledItem : PickpocketPlugin.getPickpocketConfiguration().getDisabledItems()) {
+            for (String disabledItem : PickpocketConfiguration.Companion.getDisabledItems()) {
                 Material disabledItemType = Material.getMaterial(disabledItem.toUpperCase());
 
                 // This item is disabled. Skip this random item iteration.
