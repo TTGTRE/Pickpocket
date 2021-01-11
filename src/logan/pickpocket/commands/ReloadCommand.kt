@@ -3,7 +3,7 @@ package logan.pickpocket.commands;
 import logan.api.command.BasicCommand
 import logan.api.command.SenderTarget
 import logan.pickpocket.config.MessageConfiguration
-import logan.pickpocket.main.PickpocketPlugin
+import logan.pickpocket.config.PickpocketConfiguration
 import org.bukkit.command.CommandSender
 
 class ReloadCommand : BasicCommand<CommandSender>(
@@ -17,7 +17,7 @@ class ReloadCommand : BasicCommand<CommandSender>(
     """.trimIndent()
 ) {
     override fun run(sender: CommandSender, args: Array<out String>, data: Any?): Boolean {
-        PickpocketPlugin.getPickpocketConfiguration().reload()
+        PickpocketConfiguration.reload()
         MessageConfiguration.reload()
         sender.sendMessage(MessageConfiguration.getReloadNotificationMessage())
         return true

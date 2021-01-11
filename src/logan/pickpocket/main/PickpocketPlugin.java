@@ -15,7 +15,6 @@ import logan.api.wrapper.APIWrapper1_8;
 import logan.pickpocket.commands.*;
 import logan.pickpocket.config.MessageConfiguration;
 import logan.pickpocket.config.PickpocketConfiguration;
-import logan.pickpocket.listeners.*;
 import logan.pickpocket.listeners.InventoryClickListener;
 import logan.pickpocket.listeners.InventoryCloseListener;
 import logan.pickpocket.listeners.PlayerInteractListener;
@@ -156,10 +155,6 @@ public class PickpocketPlugin extends JavaPlugin implements Listener {
         // Create and initialize configuration files.
         //
 
-        // Initialize main configuration file
-        pickpocketConfiguration = new PickpocketConfiguration();
-        pickpocketConfiguration.create();
-
         // Initialize and create message configuration file.
         MessageConfiguration.create();
 
@@ -297,7 +292,7 @@ public class PickpocketPlugin extends JavaPlugin implements Listener {
     }
 
     public static void addCooldown(Player player) {
-        cooldowns.put(player, pickpocketConfiguration.getCooldownTime());
+        cooldowns.put(player, PickpocketConfiguration.Companion.getCooldownDuration());
     }
 
     public static Map<Player, Integer> getCooldowns() {
@@ -318,10 +313,6 @@ public class PickpocketPlugin extends JavaPlugin implements Listener {
 
     public static APIWrapper getAPIWrapper() {
         return wrapper;
-    }
-
-    public static PickpocketConfiguration getPickpocketConfiguration() {
-        return pickpocketConfiguration;
     }
 
     public static Economy getEconomy() {
