@@ -97,8 +97,7 @@ public class Menu
         return menuItems.put(slot, menuItem);
     }
 
-    public void removeItem(int slot, MenuItem menuItem)
-    {
+    public void removeItem(int slot) {
         menuItems.remove(slot);
     }
 
